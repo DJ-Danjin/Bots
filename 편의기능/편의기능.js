@@ -13,6 +13,7 @@ Kakao.login();
   var counter = 0;
   var cardcounter = 0;
   var msgcount = 0;
+  var preChat = [];
   //카링용 이미지
   {
     var sandbagimg = "https://blogfiles.pstatic.net/MjAyMDA4MjlfMTIg/MDAxNTk4NjM4NTQwMzMz.jAfBNGytwIKP4UsRVxm-XLwh_Sk9FuTAvYSwEZHJFYwg.wAmo47mGvH02EorvDkdwA7KdG8sXCXgz94wT2nJv1zYg.PNG.gocaps/%EC%A0%9C%EB%AA%A9_%EC%97%86%EC%9D%8C-4.png?type=w2";
@@ -492,6 +493,111 @@ Kakao.login();
       /*경매장*/"https://cdn.discordapp.com/attachments/778559127273734165/784720670436622336/21.png"
     );
   }
+
+  // 시세 목록, 이미지
+  {
+    var quote = new Array(
+      "에스더의 기운", 
+      "파괴석 결정", 
+      "파괴강석", 
+      "중급 오레하 융화 재료", 
+      "상급 오레하 융화 재료", 
+      "위대한 명예의 돌파석", 
+      "수호강석", 
+      "경이로운 명예의 돌파석", 
+      "태양의 은총", 
+      "태양의 축복", 
+      "태양의 가호", 
+      "명예의 파편 주머니(소)", 
+      "명예의 파편 주머니(중)", 
+      "명예의 파편 주머니(대)", 
+      "야금술 : 단조 심화", 
+      "재봉술 : 수선 심화", 
+      "10레벨 멸화의 보석", 
+      "10레벨 홍염의 보석", 
+      "9레벨 멸화의 보석", 
+      "9레벨 홍염의 보석", 
+      "8레벨 멸화의 보석", 
+      "8레벨 홍염의 보석", 
+      "7레벨 멸화의 보석", 
+      "7레벨 홍염의 보석", 
+      "원한 각인서", 
+      "예리한 둔기 각인서", 
+      "저주받은 인형 각인서", 
+      "절정 각인서", 
+      "점화 각인서", 
+      "절실한 구원 각인서", 
+      "아드레날린 각인서", 
+      "잔재된 기운 각인서", 
+      "축복의 오라 각인서", 
+      "타격의 대가 각인서", 
+      "돌격대장 각인서", 
+      "광기 각인서", 
+      "전문의 각인서", 
+      "환류 각인서", 
+      "각성 각인서", 
+      "버스트 각인서", 
+      "피스메이커 각인서", 
+      "진화의 유산 각인서", 
+      "일격필살 각인서", 
+      "극의: 체술 각인서", 
+      "질량 증가 각인서", 
+      "상급 소환사 각인서", 
+      "기습의 대가 각인서", 
+      "고독한 기사 각인서", 
+      "화력 강화 각인서", 
+      "바리케이드 각인서", 
+      "초심 각인서", 
+      "분노의 망치 각인서", 
+      "갈증 각인서", 
+      "정기 흡수 각인서", 
+      "죽음의 습격 각인서", 
+      "속전속결 각인서", 
+      "충격 단련 각인서", 
+      "정밀 단도 각인서", 
+      "달의 소리 각인서", 
+      "두 번째 동료 각인서", 
+      "역천지체 각인서", 
+      "중갑 착용 각인서", 
+      "황후의 은총 각인서", 
+      "슈퍼 차지 각인서", 
+      "중력 수련 각인서", 
+      "절제 각인서", 
+      "오의난무 각인서", 
+      "핸드거너 각인서", 
+      "안정된 상태 각인서", 
+      "만개 각인서", 
+      "회귀 각인서"
+    );
+
+    var quoteImg = new Array(
+      "https://loado-app.herokuapp.com/images/loa_icons/esder.PNG", /* 에스더의 기운 */
+      "https://loado-app.herokuapp.com/images/loa_icons/redStoneLow.PNG", /* 파괴석 결정 */
+      "https://loado-app.herokuapp.com/images/loa_icons/redStoneHigh.PNG", /* 파괴강석 */
+      "https://loado-app.herokuapp.com/images/loa_icons/middleOreha.PNG", /* 중급 오레하 융화 재료 */
+      "https://loado-app.herokuapp.com/images/loa_icons/highOreha.PNG", /* 상급 오레하 융화 재료 */
+      "https://loado-app.herokuapp.com/images/loa_icons/breakStoneLow.PNG", /* 위대한 명예의 돌파석 */
+      "https://loado-app.herokuapp.com/images/loa_icons/blueStoneHigh.PNG", /* 수호강석 */
+      "https://loado-app.herokuapp.com/images/loa_icons/breakStoneHigh.PNG", /* 경이로운 명예의 돌파석 */
+      "https://loado-app.herokuapp.com/images/loa_icons/sunLow.PNG", /* 태양의 은총 */
+      "https://loado-app.herokuapp.com/images/loa_icons/sunMedium.PNG", /* 태양의 축복 */
+      "https://loado-app.herokuapp.com/images/loa_icons/sunHigh.PNG", /* 태양의 가호 */
+      "https://loado-app.herokuapp.com/images/loa_icons/fameLow.PNG", /* 명예의 파편 주머니(소) */
+      "https://loado-app.herokuapp.com/images/loa_icons/fameMedium.PNG", /* 명예의 파편 주머니(중) */
+      "https://loado-app.herokuapp.com/images/loa_icons/fameHigh.PNG", /* 명예의 파편 주머니(대) */
+      "https://loado-app.herokuapp.com/images/loa_icons/accelaratorWeapon.PNG", /* 야금술 : 단조 심화 */
+      "https://loado-app.herokuapp.com/images/loa_icons/accelaratorArmor.PNG", /* 재봉술 : 수선 심화 */
+      "https://loado-app.herokuapp.com/images/loa_icons/10LevelDamage.PNG", /* 10레벨 멸화의 보석 */
+      "https://loado-app.herokuapp.com/images/loa_icons/10LevelCoolDown.PNG", /* 10레벨 홍염의 보석 */
+      "https://loado-app.herokuapp.com/images/loa_icons/9LevelDamage.PNG", /* 9레벨 멸화의 보석 */
+      "https://loado-app.herokuapp.com/images/loa_icons/9LevelCoolDown.PNG", /* 9레벨 홍염의 보석 */
+      "https://loado-app.herokuapp.com/images/loa_icons/8LevelDamage.PNG", /* 8레벨 멸화의 보석 */
+      "https://loado-app.herokuapp.com/images/loa_icons/8LevelCoolDown.PNG", /* 8레벨 홍염의 보석 */
+      "https://loado-app.herokuapp.com/images/loa_icons/7LevelDamage.PNG", /* 7레벨 멸화의 보석 */
+      "https://loado-app.herokuapp.com/images/loa_icons/7LevelCoolDown.PNG", /* 7레벨 홍염의 보석 */
+      "https://loado-app.herokuapp.com/images/loa_icons/legendBook.PNG" /* 각인서 */
+    );
+  }
 }
 
 //함수
@@ -562,6 +668,19 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
 /*Kakaosend=(roomname, conn, type)=>{
   replier.reply(roomname,Object.keys(conn["template_args"]).map(k => conn["template_args"][k]).join("\n\n"));
 }*/
+
+  if (msg == "!최근채팅" && (sender.indexOf("단진") != -1 || sender.indexOf("레일리루나") != -1 || sender.indexOf("‮") != -1)) {
+    if (preChat[room] != undefined) {
+      replier.reply(preChat[room]);
+    } else {
+      replier.reply("저장된 채팅이 없습니다.");
+    }
+    return 0;
+  }
+
+  if (preChat[room] != msg) {
+    preChat[room] = sender + "\n" + msg;
+  }
 
   var sw = 0;
   var i = 0;
@@ -773,6 +892,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
       (room == "로아 톡방" ? "\n!로아/!루나 [닉네임]" : "\n!로아 [닉네임]"),
       "\n!각인 [닉네임]",
       "\n!수집 [닉네임]",
+      "\n!시세 [아이템 명]",
       "\n\n☆그 외☆",
       "\n!메뉴",
       "\n!치킨 [치킨을 먹을 인원수]",
@@ -3781,6 +3901,11 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
   }
 
   if (msg.indexOf("!로아 ") == 0 || msg.indexOf("!루나 ") == 0) {
+    var today = new Date();
+    if (today.getDay() == 3 && today.getHours() > 6 && today.getHours() < 10) {
+      replier.reply("정기점검 시간입니다.");
+      return 0;
+    }
     var check = 0;
     var chrname = msg.split(" ")[1];
     if (room == "크리 톡방" || msg.indexOf("!로아 카링 ") == 0) {
@@ -4053,6 +4178,11 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
   }
   
   if (msg.indexOf("!수집 ") == 0) {
+    var today = new Date();
+    if (today.getDay() == 3 && today.getHours() > 6 && today.getHours() < 10) {
+      replier.reply("정기점검 시간입니다.");
+      return 0;
+    }
     var chrname = msg.split(" ")[1];
     var url = encodeURI(chrname);
     var data = Utils.getWebText("https://www.mgx.kr/lostark/character/?character_name=" + url).replace(/미획득/gi, "");
@@ -4129,6 +4259,11 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
   }
     
   if (msg.indexOf("!각인 ") == 0) {
+    var today = new Date();
+    if (today.getDay() == 3 && today.getHours() > 6 && today.getHours() < 10) {
+      replier.reply("정기점검 시간입니다.");
+      return 0;
+    }
 
     var chrname = msg.split(" ")[1];
     var url = encodeURIComponent(chrname);
@@ -4221,5 +4356,80 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
     }, "custom");
     return 0;
   }*/
+
+  if (msg == "!시세목록") {
+    result = "《검색 가능 아이템 목록》\n\n∇▼전체 보기를 눌러주세요▼∇" + "​".repeat(495);
+    for (let i = 0; i < quote.length; i++) {
+      result = result + "\n" + quote[i];
+    }
+
+    replier.reply(result);
+  }
+
+  if (msg.indexOf("!시세 ") == 0) {
+    var item = msg.split("!시세 ")[1];
+    var itemCount = 0;
+    var itemName = "";
+    var itemIndex = 999;
+    for (let i = 0; i < quote.length; i++) {
+      if (quote[i].indexOf("||") != -1) {
+        var shortCount = 0;
+        var shortCheck = quote[i].split("||");
+        for (let j = 0; j < shortCheck.length; j++) {
+          if (item == shortCheck[j]) {
+            itemName = shortCheck[0];
+            itemIndex = i;
+          } else {
+            shortCount++;
+          }
+        }
+        if (shortCount == shortCheck.length) {
+          itemCount++;
+        }
+      } else {
+        if (item == quote[i]) {
+          itemName = quote[i];
+          itemIndex = i;
+        } else {
+          itemCount++;
+        }
+      }
+    }
+
+    if (itemCount == quote.length) {
+      replier.reply("해당 아이템을 찾을 수 없습니다.\n'!시세목록' 명령어를 통해 검색 가능한 아이템 목록을 확인해주세요.");
+      return 0;
+    }
+
+    var itemNameURI = encodeURI(itemName);
+    var data = Utils.getWebText("https://loado-app.herokuapp.com/loado/api/itemPrice/getItemPrice/" + itemNameURI);
+    if (data.split('"itemPriceLog":')[1] == "{}}") {
+      replier.reply("검색 결과가 없습니다.");
+      return 0;
+    }
+
+    var dataDate = data.split('"createdDttm":"')[1].split('","')[0];
+    var dataName = data.split('"itemName":"')[1].split('","')[0];
+    var dataPrice = data.split('"itemPrice":')[1].split('}')[0];
+
+    result = "《아이템 시세 검색 결과》\n";
+    result = result + "\n이름 : " + dataName;
+    result = result + "\n현재 시세 : " + dataPrice + " 골드";
+    result = result + "\n\n" + dataDate + " 기준";
+
+    var itemImg = (dataName.indexOf("각인서") != -1 ? quoteImg[quoteImg.length - 1] : quoteImg[itemIndex]);
+
+    Kakao.send(room, {
+      "link_ver": "4.0",
+      "template_id": 35311,
+      "template_args": {
+        "title": dataName,
+        "data0": dataPrice + " 골드",
+        "data1": dataDate + " 기준",
+        "img": itemImg
+      }
+    }, "custom");
+    return 0;
+  }
 
 }

@@ -187,9 +187,8 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
     return 0;
   }
 
-  if (room == "크리 톡방"){ /*
-    
-    if (msg == "!케이") {
+  if (room == "크리 톡방"){ 
+    /* if (msg == "!케이") {
       result = "케이 님은 지강든창입니다!";
       replier.reply(result);
       return 0;
@@ -364,147 +363,151 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
       result = "크리에이터에게 최고의 방어구!";
       replier.reply(result);
       return 0;
-    }
-*/
+    } */
   }
 
-    if (sender.indexOf("우쮸") != -1) {
-      rnd = Math.floor(Math.random() * 100);
-      if (rnd == 101) {
-        result = "https://www.twitch.tv/hod933";
-        replier.reply(result);
-        return 0;
-        }
-    }
-
-    if (msg.indexOf("!가위바위보 ") == 0 && msg.indexOf("단진") == -1) {
-      rnd = Math.floor(Math.random() * rockpaper.length);
-      replier.reply(rockpaper[rnd]);
-      return 0;
-    }
-    
-    if (msg == "!로또") {
-      let base = [];
-      let num = [];
-      let rnd;
-
-      for (let i = 1; i < 46; i++) {
-        base.push(i);
-      }
-
-      for (let j = 0; j < 6; j++) {
-        rnd = Math.floor(Math.random() * base.length);
-        num.push(base[rnd]);
-        base.splice(rnd, 1);
-      }
-
-      num.sort(function (f, s) { return f - s;});
-      result = "《" + sender + " 님의 로또 번호 추천》\n\n" + num;
-      replier.reply(result);
-      return 0;
-      }
-
-    if (room != "허니꼬미" && room != "로아 톡방") {
-      var noex = new Array("됬", "됀", "됍", "됄", "됌", "뵜", "봰", "봽", "봴", "봼");
-      var yesex = new Array("됐", "된", "됩", "될", "됨", "뵀", "뵌", "뵙", "뵐", "뵘");
-      result = "《맞춤법 지키미》";
-      var checker = 0;
-      for (i = 0; i < noex.length; i++) {
-        if (msg.indexOf(noex[i]) != -1) {
-          result = result + "\n" + noex[i] + " ☞ " + yesex[i];
-          checker = 1;
-        }
-      }
-      if (checker == 1) {
-        replier.reply(result);
-        return 0;
-      }
-    }
-
-    if (msg.indexOf("법규") != -1) {
-      result = "훠뀨!";
+  if (sender.indexOf("우쮸") != -1) {
+    rnd = Math.floor(Math.random() * 100);
+    if (rnd == 101) {
+      result = "https://www.twitch.tv/hod933";
       replier.reply(result);
       return 0;
     }
+  }
 
-    if (msg.indexOf("오늘") != -1 && msg.indexOf("생일") != -1) {
-      result = sender + " 님 생일 축하해요!";
+  if (msg.indexOf("!가위바위보 ") == 0 && msg.indexOf("단진") == -1) {
+    rnd = Math.floor(Math.random() * rockpaper.length);
+    replier.reply(rockpaper[rnd]);
+    return 0;
+  }
+  
+  if (msg == "!로또") {
+    let base = [];
+    let num = [];
+    let rnd;
+
+    for (let i = 1; i < 46; i++) {
+      base.push(i);
+    }
+
+    for (let j = 0; j < 6; j++) {
+      rnd = Math.floor(Math.random() * base.length);
+      num.push(base[rnd]);
+      base.splice(rnd, 1);
+    }
+
+    num.sort(function (f, s) { return f - s;});
+    result = "《" + sender + " 님의 로또 번호 추천》\n\n" + num;
+    replier.reply(result);
+    return 0;
+  }
+
+  if (room != "허니꼬미" && room != "로아 톡방") {
+    var noex = new Array("됬", "됀", "됍", "됄", "됌", "뵜", "봰", "봽", "봴", "봼");
+    var yesex = new Array("됐", "된", "됩", "될", "됨", "뵀", "뵌", "뵙", "뵐", "뵘");
+    result = "《맞춤법 지키미》";
+    var checker = 0;
+    for (i = 0; i < noex.length; i++) {
+      if (msg.indexOf(noex[i]) != -1) {
+        result = result + "\n" + noex[i] + " ☞ " + yesex[i];
+        checker = 1;
+      }
+    }
+    if (checker == 1) {
+      replier.reply(result);
+      return 0;
+    }
+  }
+
+  if (msg.indexOf("법규") != -1) {
+    result = "훠뀨!";
+    replier.reply(result);
+    return 0;
+  }
+
+  if (msg.indexOf("오늘") != -1 && msg.indexOf("생일") != -1) {
+    result = sender + " 님 생일 축하해요!";
+    replier.reply(result);
+    return 0;
+  }
+
+  if (msg == "!관장" && room == "커맨더 톡방") {
+    result = "재입대 ㅅㄱ";
+    replier.reply(result);
+    rnd = Math.floor(Math.random() * 5);
+    if (rnd == 1) {
+      java.lang.Thread.sleep(3000);
+      replier.reply("...진짜 하나?");
+    }
+    return 0;
+  }
+
+  if (msg.indexOf("챔") != -1 && room == "히오스 톡방") {
+    result = "췌에에에에에에에에에엠?????";
+    replier.reply(result);
+    return 0;
+  }
+
+  if (sender == "단진") {
+    if (msg.indexOf("ㄴㄷㅆ") != -1 && room == "크리 톡방") {
+      result = "네다씹;;";
       replier.reply(result);
       return 0;
     }
 
-    if (msg == "!관장" && room == "커맨더 톡방") {
-      result = "재입대 ㅅㄱ";
-      replier.reply(result);
-      rnd = Math.floor(Math.random() * 5);
-      if (rnd == 1) {
-        java.lang.Thread.sleep(3000);
-        replier.reply("...진짜 하나?");
-      }
-      return 0;
-    }
-
-    if (msg.indexOf("챔") != -1 && room == "히오스 톡방") {
-      result = "췌에에에에에에에에에엠?????";
+    if (msg == "나는") {
+      result = "개똥벌레";
       replier.reply(result);
       return 0;
     }
 
-    if (sender == "단진") {
-      if (msg.indexOf("ㄴㄷㅆ") != -1 && room == "크리 톡방") {
-        result = "네다씹;;";
-        replier.reply(result);
-        return 0;
-      }
-
-      if (msg == "나는") {
-        result = "개똥벌레";
-        replier.reply(result);
-        return 0;
-      }
-
-      if (msg == "친구가") {
-        result = "없네";
-        replier.reply(result);
-        return 0;
-      }
-
-      if (msg == "저기 저") {
-        result = "개똥무덤이";
-        replier.reply(result);
-        return 0;
-      }
-
-      if (msg == "내") {
-        result = "집인걸";
-        replier.reply(result);
-        return 0;
-      }
-
-      if (msg == "아무리") {
-        result = "울어봐도";
-        replier.reply(result);
-        return 0;
-      }
-
-      if (msg == "어쩔 수") {
-        result = "없네";
-        replier.reply(result);
-        return 0;
-      }
-
-      if (msg == "오늘 밤도") {
-        result = "그 렇 게";
-        replier.reply(result);
-        return 0;
-      }
-
-      if (msg == "울다") {
-        result = "잠이 든다";
-        replier.reply(result);
-        return 0;
-      }
+    if (msg == "친구가") {
+      result = "없네";
+      replier.reply(result);
+      return 0;
     }
 
+    if (msg == "저기 저") {
+      result = "개똥무덤이";
+      replier.reply(result);
+      return 0;
+    }
 
+    if (msg == "내") {
+      result = "집인걸";
+      replier.reply(result);
+      return 0;
+    }
+
+    if (msg == "아무리") {
+      result = "울어봐도";
+      replier.reply(result);
+      return 0;
+    }
+
+    if (msg == "어쩔 수") {
+      result = "없네";
+      replier.reply(result);
+      return 0;
+    }
+
+    if (msg == "오늘 밤도") {
+      result = "그 렇 게";
+      replier.reply(result);
+      return 0;
+    }
+
+    if (msg == "울다") {
+      result = "잠이 든다";
+      replier.reply(result);
+      return 0;
+    }
+  }
+
+  if (room == "로아 톡방") {
+    if (msg == "!눈개") {
+      replier.reply("귀요미");
+      return 0;
+    }
+  }
 }
