@@ -4405,9 +4405,15 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
       return 0;
     }
 
+    var date = new Date();
+    var y = date.getFullYear();
+    var m = date.getMonth() + 1;
+    var d = date.getDate();
+    var todayDate = y + "-" + (m < 10 ? "0" + m : m) + "-" + (d < 10 ? "0" + d : d);
+
     var itemNameURI = encodeURI(itemName);
-    var data = Utils.getWebText("https://loado-app.herokuapp.com/loado/api/itemPrice/getItemPrice/" + itemNameURI);
-    if (data.split('"itemPriceLog":')[1] == "{}}") {
+    var data = Utils.getWebText("https://loado-app.herokuapp.com/loado/api/itemPrice/getItemPrice/" + itemNameURI + "/" + todayDate + "/" + todayDate);
+    if (data.split('"itemPriceLog":')[1].split("}")[0] == "{") {
       replier.reply("검색 결과가 없습니다.");
       return 0;
     }
