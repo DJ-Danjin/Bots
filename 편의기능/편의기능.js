@@ -3913,7 +3913,13 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
       chrname = msg.split(" ")[2];
     }
     var url = encodeURIComponent(chrname);
-    var data = Utils.getWebText("https://lostark.game.onstove.com/Profile/Character/" + url);
+    try {
+      var data = Utils.getWebText("https://lostark.game.onstove.com/Profile/Character/" + url);      
+    } catch (error) {
+      if (error.status == 500) {
+        replier.reply("점검중입니다.")
+      }
+    }
     if (data.indexOf("캐릭터 정보가 없습니다.") != -1) {
       replier.reply(chrname + "님은 존재하지 않는 캐릭터명입니다.");
       return 0;

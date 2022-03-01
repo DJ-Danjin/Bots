@@ -6,22 +6,37 @@ Kakao.login();
 
 function response(room, msg, sender, isGroupChat, replier, imageDB, packageName) {
   if (msg.indexOf("[") == 0) {
-    let count = 0;
-    let emoValue;
+    let emoCount = 0;
+    let emoValue = 0;
     for (let i = 0; i < emoText.length; i++) {
-      if (msg == emoText[i]) {
-        emoValue = i;
+      if (emoText[i].indexOf("||") != -1) {
+        let otherCount = 0;
+        let otherCheck = emoText[i].split("||");
+        for (let j = 0; j < otherCheck.length; j++) {
+          if (msg == otherCheck[j]) {
+            emoValue = i;
+          } else {
+            otherCount++;
+          }
+        }
+        if (otherCount == otherCheck.length) {
+          emoCount++;
+        }
       } else {
-        count++;
+        if (msg == emoText[i]) {
+          emoValue = i;
+        } else {
+          emoCount++;
+        }
       }
     }
-    if (count != emoText.length) {
+    if (emoCount != emoText.length) {
       Kakao.send(room, {
         "link_ver": "4.0",
         "template_id": 45365 ,
         "template_args": {
           "title": "",
-          "des": emoText[emoValue],
+          "des": msg,
           "wid": emoWid[emoValue],
           "hei": emoHei[emoValue],
           "img": emoImg[emoValue]
@@ -178,35 +193,31 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
   var emoText = [
                   "[놀자에요]",
                   "[머쓱해요]",
-                  "[뭐라구요]",
-                  "[뭐라구요?]",
+                  "[뭐라구요]||[뭐라구요?]",
                   "[웃프네요]",
-                  "[추천이요]",
-                  "[최고에요]",
+                  "[추천이요]||[최고에요]",
                   "[놀자에몽]",
                   "[머쓱환에요]",
                   "[정말이요]",
                   "[웃기구요]",
                   "[웃기네요]",
-                  "[엄지척]",
-                  "[모야호]",
+                  "[엄지척]||[엄지로아콘]",
+                  "[모야호]||[야호로아콘]",
                   "[크크크]",
                   "[방긋방긋]",
                   "[이거줘]",
                   "[응안줘]",
                   "[빠직]",
                   "[슬퍼]",
-                  "[기분좋은향기]",
+                  "[기분좋은향기]||[향기로아콘]",
                   "[털썩]"
                 ];
   var emoWid = [
                   /*[놀자에요]*/283,
                   /*[머쓱해요]*/283,
                   /*[뭐라구요]*/283,
-                  /*[뭐라구요?]*/283,
                   /*[웃프네요]*/283,
                   /*[추천이요]*/283,
-                  /*[최고에요]*/283,
                   /*[놀자에몽]*/283,
                   /*[머쓱환에요]*/340,
                   /*[정말이요]*/283,
@@ -227,10 +238,8 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
                   /*[놀자에요]*/283,
                   /*[머쓱해요]*/283,
                   /*[뭐라구요]*/283,
-                  /*[뭐라구요?]*/283,
                   /*[웃프네요]*/283,
                   /*[추천이요]*/283,
-                  /*[최고에요]*/283,
                   /*[놀자에몽]*/283,
                   /*[머쓱환에요]*/255,
                   /*[정말이요]*/283,
@@ -251,10 +260,8 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
     /*[놀자에요]*/"https://cdn.discordapp.com/attachments/778559127273734165/906563617170812949/i14275538961.png",
     /*[머쓱해요]*/"https://cdn.discordapp.com/attachments/778559127273734165/906563631263657984/i14726556752.png",
     /*[뭐라구요]*/"https://cdn.discordapp.com/attachments/778559127273734165/906563649588584498/i13566529069.png",
-    /*[뭐라구요?]*/"https://cdn.discordapp.com/attachments/778559127273734165/906563649588584498/i13566529069.png",
     /*[웃프네요]*/"https://cdn.discordapp.com/attachments/778559127273734165/906563668551020634/i15246737836.png",
     /*[추천이요]*/"https://cdn.discordapp.com/attachments/778559127273734165/906563725551603773/i16357392680.png",
-    /*[최고에요]*/"https://cdn.discordapp.com/attachments/778559127273734165/906563725551603773/i16357392680.png",
     /*[놀자에몽]*/"https://cdn.discordapp.com/attachments/778559127273734165/906563800386404402/i16410971663.png",
     /*[머쓱환에요]*/"https://cdn.discordapp.com/attachments/778559127273734165/906563876773052426/i15916633816.png",
     /*[정말이요]*/"https://cdn.discordapp.com/attachments/778559127273734165/906563912936325180/i15436393927.png",
