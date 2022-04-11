@@ -4466,4 +4466,36 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
     return 0;
   }
 
+  if (msg == "!지도") {
+    var data = Utils.getWebText("https://loatool.taeu.kr/calculator/secret-map");
+
+    var mapPrice = data.split("전설지도 가격")[1].split('<span class="loa-gold font-weight-bold">')[1].split("</span>")[0];
+    var tax = data.split("판매수수료")[1].split('<span class="loa-gold font-weight-bold">')[1].split("</span>")[0];
+    var flagSpot = data.split("손익분기점")[1].split('<span class="loa-gold font-weight-bold">')[1].split("</span>")[0];
+    var goodPrice = data.split("입찰적정가")[1].split('<span class="loa-gold green--text font-weight-bold">')[1].split("</span>")[0];
+    var getGold = data.split("분배금")[1].split('<span class="loa-gold font-weight-bold">')[1].split("</span>")[0];
+
+    Kakao.send(room, {
+      "link_ver": "4.0",
+      "template_id": 66529 ,
+      "template_args": {
+        "imgItemTitle": "베른 남부 전설 지도",
+        "imgItemDes": "",
+        "imgItemImg": "https://cdn.discordapp.com/attachments/778559127273734165/963127508037935115/unknown.png",
+        "txtItemTitle1": "가격",
+        "txtItemDes1": mapPrice,
+        "txtItemTitle2": "수수료",
+        "txtItemDes2": tax,
+        "txtItemTitle3": "손익분기점",
+        "txtItemDes3": flagSpot,
+        "txtItemTitle4": "입찰적정가",
+        "txtItemDes4": goodPrice,
+        "txtItemTitle5": "분배금",
+        "txtItemDes5": getGold,
+        "AL": "right",
+        "title": "실제 시세와 차이가 있을 수 있습니다"
+      }
+    }, "custom");
+  }
+
 }
