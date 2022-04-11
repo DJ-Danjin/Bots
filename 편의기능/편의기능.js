@@ -72,7 +72,7 @@ Kakao.login();
       /*떡볶이*/"https://t1.daumcdn.net/cfile/tistory/99B6C24C5CA6ACBD02",
       /*곱창*/"https://img3.tmon.kr/cdn3/deals/2019/06/04/2138708266//2138708266_front_4V9N853ifu.jpg",
       /*막창*/"https://img-cf.kurly.com/shop/data/goodsview/20180426/gv10000022154_1.jpg",
-      /*된장찌개*/"https://craftlog.com/m/i/6040738=s1280=h960",
+      /*된장찌개*/"https://cdn.discordapp.com/attachments/778559127273734165/956626601997631488/ca8647124a4536b5dad3007a58181b7c1.png",
       /*동태찌개*/"https://ggtour.or.kr/wp-content/uploads/2014/02/489_03_800.jpg",
       /*회덮밥*/"http://item.ssgcdn.com/33/32/49/item/1000026493233_i1_1200.jpg",
       /*쫄면*/"https://thumbnail.10x10.co.kr/webimage/image/basic600/232/B002323279.jpg?cmd=thumb&w=500&h=500&fit=true&ws=false",
@@ -107,7 +107,7 @@ Kakao.login();
       /*제육볶음*/"https://homecuisine.co.kr/files/attach/images/140/082/010/07112c7bd5887f9413dc6af17cc3a2d5.JPG",
       /*참치찌개*/"https://static.hubzum.zumst.com/hubzum/2017/12/12/11/fb06bafa40fb4237b20cdbb923a2bb2b_780x0c.jpg",
       /*꽁치찌개*/"https://mblogthumb-phinf.pstatic.net/20150108_282/dew36_14207285343923o3BK_JPEG/26.jpg?type=w2",
-      /*치킨마요덮밥*/"https://craftlog.com/m/i/5936362=s1280=h960",
+      /*치킨마요덮밥*/"https://cdn.discordapp.com/attachments/778559127273734165/956624659992948796/861059415e31a98ec4b8d5bd3f7be0ca1.png",
       /*해물탕*/"https://t1.daumcdn.net/cfile/tistory/144626124C900A9538?original",
       /*뼈해장국*/"https://t1.daumcdn.net/cfile/tistory/99E7A9335CCB94A70A",
       /*케이크*/"https://wow.zamimg.com/uploads/screenshots/normal/103603-.jpg",
@@ -120,7 +120,7 @@ Kakao.login();
       /*오돌뼈*/"https://m.coople.co.kr/web/product/big/201710/22_shop1_271151.jpg",
       /*주먹밥*/"https://cloudfront.haemukja.com/vh.php?url=https://d1hk7gw6lgygff.cloudfront.net/uploads/direction/image_file/19447/pad_thumb_PA110029.JPG&convert=jpgmin&rt=600",
       /*치즈떡볶이*/"https://i.ytimg.com/vi/wgfDDn0uGOk/maxresdefault.jpg",
-      /*치즈김밥*/"https://craftlog.com/m/i/5934748=s1280=h960",
+      /*치즈김밥*/"https://cdn.discordapp.com/attachments/778559127273734165/956626898820153384/ececca14b1c4867e67b7f4588cca32ea1.png",
       /*참치김밥*/"https://i.ytimg.com/vi/qzBgjrOECoA/maxresdefault.jpg",
       /*땡초김밥*/"https://t1.daumcdn.net/cfile/tistory/99E309395B80F91819",
       /*꼬마김밥*/"https://img.etoday.co.kr/pto_db/2019/10/600/20191007172602_1374013_685_514.jpg",
@@ -143,7 +143,7 @@ Kakao.login();
       /*김치덮밥*/"https://recipe1.ezmember.co.kr/cache/recipe/2019/01/05/8cf7a3c0e113de435fa189b1d3e6984c1.jpg",
       /*돈까스*/"https://th2.tmon.kr/thumbs/image/423/336/e17/1b1492318_700x700_95_FIT.jpg",
       /*치즈돈까스*/"https://mp-seoul-image-production-s3.mangoplate.com/363712/465017_1564562372773_587882",
-      /*고구마돈까스*/"https://m.yum-yumfood.com/web/product/big/201607/29_shop1_382074.jpg",
+      /*고구마돈까스*/"https://cdn.discordapp.com/attachments/778559127273734165/956627106673082438/original_2796301094_front_247b9_1587445662production.png",
       /*고추돈까스*/"https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F992C5C3359A3AEF316",
       /*짜장떡볶이*/"https://recipe1.ezmember.co.kr/cache/recipe/2018/11/15/1115933858c7ce661d92167f14e38e0b1.jpg",
       /*햄버거*/"https://img.hankyung.com/photo/201908/01.20330262.1.jpg",
@@ -168,7 +168,7 @@ Kakao.login();
       /*해신탕*/"http://food.chosun.com/site/data/img_dir/2017/04/20/2017042001212_0.jpg",
       /*낙지볶음*/"https://cloudfront.haemukja.com/vh.php?url=https://d1hk7gw6lgygff.cloudfront.net/uploads/direction/image_file/14613/pad_thumb_______.PNG&convert=jpgmin&rt=600",
       /*소머리국밥*/"https://www.gyeongju.go.kr/upload/content/thumb/20200409/9BBBF856AE104EFFA8641F98DA1DBE4E.jpg",
-      /*선지해장국*/"https://craftlog.com/m/i/5732298=s1280=h960",
+      /*선지해장국*/"https://cdn.discordapp.com/attachments/778559127273734165/956628317321191504/gv20000047730_1.png",
       /*콩나물국밥*/"https://t1.daumcdn.net/cfile/tistory/99E2E94C5DAFF30E30",
       /*돼지국밥*/"https://img.insight.co.kr/static/2019/10/23/700/ha36aae74e192040wc5c.jpg",
       /*까르보나라*/"https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F234631455571D04925",
@@ -345,7 +345,7 @@ Kakao.login();
       /*커피코카콜라*/"https://t1.daumcdn.net/liveboard/dispatch/77ec99a5401d480fa47b5e5fedfb75cd.JPG",
       /*무한으로 즐겨요 명륜진사갈비*/"http://www.goodgag.net/_data/up/1907/c57265d3ae77d4cac12144308.jpg",
       /*도너츠*/"http://thumbnail.egloos.net/600x0/http://pds4.egloos.com/pds/200705/15/83/a0016483_1105438.jpg",
-      /*로앤슬*/"https://i.ytimg.com/vi/lv8ZOULglk8/maxresdefault.jpg",
+      /*로앤슬*/"https://cdn.discordapp.com/attachments/778559127273734165/956622716465725490/b0253212_5e293b7f8fe39.png",
       /*비프웰링턴*/"https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Beef_Wellington_2019.jpg/640px-Beef_Wellington_2019.jpg",
       /*온센타마고*/"https://cdn.discordapp.com/attachments/778559127273734165/781102992522477588/unknown.png",
       /*아이스크림*/"https://cdn.discordapp.com/attachments/778559127273734165/811209809163714600/style_5c9c8c4ba29e7-930x523.png",
@@ -676,6 +676,24 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
       replier.reply("저장된 채팅이 없습니다.");
     }
     return 0;
+  }
+
+  if (msg == "!메뉴점검" && (sender.indexOf("단진") != -1 || sender.indexOf("레일리루나") != -1 || sender.indexOf("‮") != -1)) {
+    let errCount = 0;
+    for (let i = 0; i < mimg.length; i++) {
+      try {
+        var imgCheck = Utils.getWebText(mimg[i]);
+      } catch (error) {
+        replier.reply(menu[i]);
+        errCount++;
+      }
+    }
+
+    if (errCount > 0) {
+      replier.reply("점검 종료");
+    } else {
+      replier.reply("이상 없음");
+    }
   }
 
   if (preChat[room] != msg) {
