@@ -829,7 +829,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
   }
 
   if (msg == "!명령어") {
-    if (room == "크리 톡방" || room == "커맨더 톡방" || room == "1해라 12야" || room == "라피니타" || room == "무속성 톡방" || room == "런처 톡방" || room == "허니꼬미") {
+    if (room == "크리 톡방" || room == "커맨더 톡방" || room == "1해라 12야" || room == "라피니타" || room == "무속성 톡방" || room == "런처 톡방" || room == "허니꼬미" || room == "졸업생") {
       {
         var OrderSign = new Array(
           "\n[ ]로 묶여있는 부분은 사용자가 직접 해당 내용에 맞게 기재하여야 합니다.",
