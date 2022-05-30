@@ -900,7 +900,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
       "\n\n\n명령어는 추가될 수 있습니다",
       "\n\n비공식 명령어는 표기되지 않았습니다."
     );
-  } else if (room == "로아 톡방" || room == "파티리듬담당") {
+  } else if (room == "로아 톡방") {
     var OrderSign = new Array(
       "\n[ ]로 묶여있는 부분은 사용자가 직접 해당 내용에 맞게 기재하여야 합니다.",
       "\n해당 내용을 기재할 때엔 [ ]는 제외하고 입력하시되, [ ]간의 띄어쓰기에 유의해주세요!",
@@ -4207,28 +4207,38 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
       replier.reply("정기점검 시간입니다.");
       return 0;
     }
+
     var chrname = msg.split(" ")[1];
-    var url = encodeURI(chrname);
-    var data = Utils.getWebText("https://www.mgx.kr/lostark/character/?character_name=" + url).replace(/미획득/gi, "");
-    if (data.indexOf("존재하지 않는 캐릭터 입니다") != -1) {
+    var url = encodeURIComponent(chrname);
+
+    var data = Utils.getWebText("https://lostark.game.onstove.com/Profile/Character/" + url);
+    if (data.indexOf("캐릭터 정보가 없습니다.") != -1) {
       replier.reply(chrname + "님은 존재하지 않는 캐릭터명입니다.");
       return 0;
     }
-    // var cutting = data.split("profile-collection-tab")[1];
+
+    var cutting = data.split("memberNo")[1].split("'");
+    var memberNo = cutting[1];
+    var pcId = cutting[3];
+    var worldNo = cutting[5];
+
+    var collectData = org.jsoup.Jsoup.connect("https://m-lostark.game.onstove.com/Profile/GetCollection").data("memberNo", memberNo).data("pcId", pcId).data("worldNo", worldNo).post().toString();
+
     var collect = new Array("섬마", "오페", "거심", "미술품", "모코코", "모험물", "이그네아", "세계수");
     result = "《" + chrname + " 님의 수집형 포인트》\n";
     var now = "";
     var max = "";
     var tabSize, nowTab, maxTab;
     for (i = 0; i < 8; i++) {
-      temp = data.split("획득 현황")[i + 1].split("collecting_active_count")[1];
-      now = temp.split(">")[1].split("<")[0].split("/")[0].replace(/\s/gi, "").replace(/\n/gi, "");
-      max = temp.split(">")[1].split("<")[0].split("/")[1].replace(/\s/gi, "").replace(/\n/gi, "");
+      temp = collectData.split("획득 현황")[i + 1].split("/div")[0];
+      now = temp.split("now-count")[1].split("<")[0].split(">")[1];
+      max = temp.split("max-count")[1].split("<")[0].split(">")[1];
       tabSize = 5 - collect[i].length;
       nowTab = 4 - now.length + (now.length == 4 ? 0 : 1);
       maxTab = 4 - max.length + (max.length == 4 ? 0 : 1);
       result = result + "\n" + collect[i] + "　".repeat(tabSize) + " ".repeat(nowTab) + now + " / " + " ".repeat(maxTab) + max + " 개";
     }
+
     replier.reply(result);
 
     // Kakao.send(room, {
