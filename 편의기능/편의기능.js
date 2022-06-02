@@ -33,6 +33,14 @@ Kakao.login();
   var grade = new Array("고급", "희귀", "영웅", "전설", "유물");
   var gradeRow = new Array("1", "2", "3", "4", "5");
 
+  var resultImgName = new Array("주화", "골드", "카드", "실링");
+  var resultImg = new Array(
+    "https://ark.bynn.kr/assets/lostark/pirate_coin.png",
+    "https://ark.bynn.kr/assets/lostark/gold_coin.png",
+    "https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/Use/Use_7_140.png",
+    "https://ark.bynn.kr/assets/lostark/siling_coin.png"
+  );
+
   var weaterText = new Array("맑음", "구름조금", "구름많음", "흐림", "소나기", "비", "가끔 비", "한때 비", "눈", "가끔 눈", "한때 눈", "비 또는 눈", "가끔 비 또는 눈", "한때 비 또는 눈", "눈 또는 비", "가끔 눈 또는 비", "한때 눈 또는 비", "천둥번개", "연무", "안개", "박무 (엷은 안개)", "황사");
   var weaterImg = new Array(  // 밤 = .png 앞에 _N 추가   ex) NB01_N.png    밤 = 18시~07시, 맑음/구름조금/구름많음 에만 적용
     /*맑음*/"https://www.weather.go.kr/home/images/icon/NW/NB01.png",
@@ -1584,7 +1592,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
     }
     var temp;
     var servertemp;
-    var nametemp;
+    var nameTemp;
     var leveltemp;
     var job;
     var grow;
@@ -1592,7 +1600,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
     for (i = 0; i < lencheck.length - 1; i++) {
       temp = data.split("serverId")[i + 1];
       servertemp = temp.split(":")[1].split(",")[0];
-      nametemp = temp.split("characterName:")[1].split(",")[0];
+      nameTemp = temp.split("characterName:")[1].split(",")[0];
       leveltemp = temp.split("level:")[1].split(",")[0];
       
       job = temp.split("jobName:")[1].split(",")[0];
@@ -1609,7 +1617,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
         }
       }
 
-      result = result + "\n" + servername[num] + " - " + nametemp + "(Lv. " + leveltemp + ")\n직업 : " + finaljob + "\n";
+      result = result + "\n" + servername[num] + " - " + nameTemp + "(Lv. " + leveltemp + ")\n직업 : " + finaljob + "\n";
     }
     replier.reply(result);
     return 0;
@@ -4504,6 +4512,46 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
         "txtItemDes5": getGold,
         "AL": "right",
         "title": "실제 시세와 차이가 있을 수 있습니다"
+      }
+    }, "custom");
+  }
+
+  if (msg == "!모험섬") {
+    var data = Utils.getWebText("https://loawa.com/");
+
+    var extract = data.split("모험섬")[1];
+
+    var islandName = new Array;
+    var resultType = new Array;
+    var resultTypeImg = new Array;
+    
+    var islandLength = extract.split("lang-main");
+    for (let i = 1; i < islandLength.length; i++) {
+      var nameTemp = islandLength[i].split(">")[1].split("<")[0];
+      var typeTemp = islandLength[i].split("lang-text")[1].split(">")[1].split("<")[0];
+      var imgTemp = "";
+      for (let j = 0; j < resultImgName.length; j++) {
+        if (resultImgName[j] == typeTemp) imgTemp = resultImg[j];
+      }
+      islandName.push(nameTemp);
+      resultType.push(typeTemp);
+      resultTypeImg.push(imgTemp);
+    }
+
+    Kakao.send(room, {
+      "link_ver": "4.0",
+      "template_id": 35313 ,
+      "template_args": {
+        "title": "모험섬 등장 정보",
+        "data0": islandName[0],
+        "data1": resultType[0],
+        "img0" : resultTypeImg[0],
+        "data2": islandName[1],
+        "data3": resultType[1],
+        "img1" : resultTypeImg[1],
+        "data4": islandName[2],
+        "data5": resultType[2],
+        "img2" : resultTypeImg[2],
       }
     }, "custom");
   }
