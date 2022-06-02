@@ -1120,6 +1120,10 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
   }
 
   if (msg == "!메뉴") {
+    if (sender == "방장봇") {
+      replier.reply("!메뉴");
+      return 0;
+    }
     rnd = Math.floor(Math.random() * menu.length);
     //mimg[rnd] = "현재 이미지는 제공되고 있지 않습니다.";
 

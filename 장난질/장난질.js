@@ -90,10 +90,17 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
   if (msg.indexOf("!마법의크리봇님 ") == 0 || msg.indexOf("!마법의루나봇님 ") == 0) {
     if (babo.indexOf("단진") != -1 && msg.indexOf("님") != -1) {
       return 0;
+    } else if (msg.indexOf("vs") != -1) {
+      var versus = msg.split("!마법의크리봇님 ")[1];
+      var selectWin = versus.split("vs");
+      var rannum = Math.floor(Math.random() * selectWin.length);
+
+      replier.reply(selectWin[rannum]);
+      return 0;
     } else {
-    var rannum = Math.floor(Math.random() * list.length);
-    replier.reply(list[rannum]);
-    return 0;
+      var rannum = Math.floor(Math.random() * list.length);
+      replier.reply(list[rannum]);
+      return 0;
     }
   }
 
