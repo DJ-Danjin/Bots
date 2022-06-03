@@ -21,7 +21,8 @@ Kakao.login();
     var isisimg = "https://blogfiles.pstatic.net/MjAyMDA4MjlfMTQg/MDAxNTk4NjM4NTQwODE2.x1nroSeHhGt6aKT5jBx10P9aj-oORSRXLyuXDqUcNPkg.93c6CQGZw5WGtIQz1NdLtEYBd54lNnMnLf4CQXOvVLMg.PNG.gocaps/%EC%A0%9C%EB%AA%A9_%EC%97%86%EC%9D%8C-6.png?type=w2";
     var sirocoimg = "https://blogfiles.pstatic.net/MjAyMDA4MjlfMTk3/MDAxNTk4NjM4NTQxMDY0.8tmYmhfunJE8k2oirbQ013-aN2dTV5KGkRLaX-lwlOUg.beKckWfLzcNEUI2g85ExDPVgVDB2w05pkxJ1-AMvsaUg.PNG.gocaps/%EC%A0%9C%EB%AA%A9_%EC%97%86%EC%9D%8C-7.png?type=w2";
   }
-  //var img = "";
+  var islandImgBase = "https://static.loawa.com/icons/today/island_0";
+  var islandImgTail = ".jpg";
 }
 
 //배열
@@ -32,6 +33,14 @@ Kakao.login();
   var jobvalue = new Array("귀검사(남)", "격투가(여)", "거너(남)", "마법사(여)", "프리스트(남)", "거너(여)", "도적", "격투가(남)", "마법사(남)", "다크나이트", "크리에이터", "귀검사(여)", "나이트", "마창사", "프리스트(여)", "총검사");
   var grade = new Array("고급", "희귀", "영웅", "전설", "유물");
   var gradeRow = new Array("1", "2", "3", "4", "5");
+
+  var islandImgName = new Array("기회의 섬", "하모니 섬", "포르페", "볼라르 섬", "메데이아", "몬테 섬", "수라도", "고요한 안식의 섬", "죽음의 협곡", "블루홀 섬", "쿵덕쿵 아일랜드", "스노우팡 아일랜드", "환영 나비 섬", "우거진 갈대의 섬", "잔혹한 장난감 성");
+  var resultTypeImgLink = new Array(
+    "https://static.loawa.com/icons/today/island_r5.jpg", // 주화
+    "https://static.loawa.com/icons/today/island_r1.jpg", // 골드
+    "https://static.loawa.com/icons/today/island_r6.jpg", // 카드
+    "https://static.loawa.com/icons/today/island_r2.jpg" // 실링
+  );
 
   var resultImgName = new Array("주화", "골드", "카드", "실링");
   var resultImg = new Array(
@@ -4531,12 +4540,27 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
     
     var islandLength = extract.split("lang-main");
     for (let i = 1; i < islandLength.length; i++) {
-      var nameTemp = islandLength[i].split(">")[1].split("<")[0];
-      var typeTemp = islandLength[i].split("lang-text")[1].split(">")[1].split("<")[0];
-      var imgTemp = "";
-      for (let j = 0; j < resultImgName.length; j++) {
-        if (resultImgName[j] == typeTemp) imgTemp = resultImg[j];
+
+      var nameLink = islandLength[i].split("rounded-top")[1].split("src=\"")[1].split("\"")[0];
+      var nameTemp = "";
+      for (let j = 0; j < islandImgName.length; j++) {
+        var nameCheck = islandImgBase + j + islandImgTail;
+        if (nameLink == nameCheck) nameTemp = islandImgName[j];
       }
+
+      var typeLink = islandLength[i].split("rounded-bottom")[1].split("src=\"")[1].split("\"")[0];
+      var typeTemp = "";
+      var imgTemp = "";
+      for (let j = 0; j < resultTypeImgLink.length; j++) {
+        if (typeLink === resultTypeImgLink[j]) {
+          typeTemp = resultImgName[j];
+          imgTemp = resultImg[j];
+        }
+      }
+
+      // for (let j = 0; j < resultImgName.length; j++) {
+      //   if (resultImgName[j] == typeTemp) imgTemp = resultImg[j];
+      // }
       islandName.push(nameTemp);
       resultType.push(typeTemp);
       resultTypeImg.push(imgTemp);
