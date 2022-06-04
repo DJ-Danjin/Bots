@@ -711,6 +711,8 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
     } else {
       replier.reply("이상 없음");
     }
+
+    return 0;
   }
 
   if (preChat[room] != msg) {
@@ -739,6 +741,8 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
     }
     
     // replier.reply("《계산 결과》\n" + math(msg));
+  
+    return 0;
   }
 
   if (msg.indexOf("!할인율 ") == 0) { // 원가와 할인가로 할인율 계산 
@@ -746,7 +750,10 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
     var OriginalPrice = msg.split("-")[0];
     var DiscountPrice = msg.split("-")[1];
     var result = roundXL(100 - (DiscountPrice * 100 / OriginalPrice), 2) + " %";
+
     replier.reply("《할인율 계산기》\n" + result);
+
+    return 0;
   }
 
   if (msg.indexOf("!구매가 ") == 0) { // 원가와 할인율로 구매가 계산
@@ -754,7 +761,10 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
     var OriginalPrice = msg.split("-")[0];
     var DiscountPrice = msg.split("-")[1];
     var result = roundXL(OriginalPrice * (100 - DiscountPrice) / 100, 2) + " ";
+
     replier.reply("《구매가 계산기》\n" + result);
+
+    return 0;
   }
 
   if (msg.indexOf("!할인가 ") == 0) { // 원가와 할인율로 할인가 계산
@@ -762,7 +772,10 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
     var OriginalPrice = msg.split("-")[0];
     var DiscountPrice = msg.split("-")[1];
     var result = roundXL((OriginalPrice * DiscountPrice) / 100, 2) + " ";
+
     replier.reply("《할인가 계산기》\n" + result);
+
+    return 0;
   }
 
   if (msg.indexOf("!치킨 ") == 0) {
@@ -843,6 +856,8 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
 
     var result = "현재 한강 수온은 " + degree + " ℃ 입니다.\n\n" + year + "년 " + month + "월 " + day + "일 " + time + " 기준";
     replier.reply(result);
+
+    return 0;
   }
 
   if (msg == "!명령어") {
@@ -886,10 +901,10 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
           "\n(최대 10개까지 표시)",
           "\n(모든 아이템 검색시 !검색풀 사용 - 오래걸림)",*/
           "\n!오늘등급 / !등급",
-          //"\n!추출속도",
+          /*"\n!추출속도",
           "\n!조합기",
           "\n!계산기",
-          /*"\n\n★간이 경매장★",
+          "\n\n★간이 경매장★",
           "\n!목록",
           "\n!등록 [판매할 물품]",
           "\n※반드시 한줄로 작성할것 (엔터 금지)",
@@ -928,8 +943,11 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
       "\n!각인 [닉네임]",
       "\n!수집 [닉네임]",
       "\n!시세 [아이템 명]",
+      "\n!지도",
+      "\n!모험섬",
       "\n\n☆그 외☆",
       "\n!메뉴",
+      "\n!메뉴 카테고리/[카테고리]",
       "\n!치킨 [치킨을 먹을 인원수]",
       "\n!계산 [식]",
       "\n!날씨",
@@ -962,6 +980,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
       result = result + OrderSign[i];
     }
     replier.reply(result);
+
     return 0;
   }
 
@@ -1009,6 +1028,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
       result = result + "각종 봇 기능 사용 》 !명령어 채팅창 입력";
     }
     replier.reply(result);
+
     return 0;
   }
 
@@ -1039,6 +1059,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
   if (msg == "!던담") {
     result = "《던담 캐릭터 정보 조회》\ndundam.xyz";
     replier.reply(result);
+
     return 0;
   }
 
@@ -1046,12 +1067,14 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
     searchvalue = msg.replace("!던담 ", "");
     result = "《" + searchvalue + "님의 던담 캐릭터 검색》\ndundam.xyz/search?server=all&name=" + encodeURIComponent(searchvalue);
     replier.reply(result);
+
     return 0;
   }
 
   if (msg == "!던셋") {
     result = "《획득한 에픽 정보 조회》\ndfset.me";
     replier.reply(result);
+
     return 0;
   }
 
@@ -1059,12 +1082,14 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
     searchvalue = msg.replace("!던셋 ", "");
     result = "《" + searchvalue + "님의 던셋 캐릭터 검색》\ndfset.me/?serverId=all&charName=" + encodeURIComponent(searchvalue);
     replier.reply(result);
+
     return 0;
   }
 
   if (msg == "!프로필") {
     result = "《던파 캐릭터 프로필 생성기》\ndunp.net";
     replier.reply(result);
+
     return 0;
   }
 
@@ -1113,24 +1138,28 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
   if (msg == "!공홈") {
     result = "《던전 앤 파이터 공식 홈페이지》\n넥슨 : http://df.nexon.com" + "\n네이버 : http://df.game.naver.com/df/home";
     replier.reply(result);
+
     return 0;
   }
 
   if (msg == "!별빛의노래") {
     result = "《에일린 목소리 버전》\nhttps://youtu.be/6RAAEczM9vY\n《인게임 버전》\nhttps://youtu.be/Vqv4sxFANJE";
     replier.reply(result);
+
     return 0;
   }
 
   if (msg == "!지역광고") {
     result = "☆스팀게임☆♚♚엔터☆더☆건전♚♚구매시$$전원 캐릭터☜☜4종100%지급※♜한방쾌감♜연사쾌감 무료증정￥특정조건\xa7\xa7과거제거\xa7\xa7★패러독스★건슬링거획득기회@@@\nhttps://store.steampowered.com/app/311690/Enter_the_Gungeon/";
     replier.reply(result);
+
     return 0;
   }
 
   if (msg == "!메뉴") {
     if (sender == "방장봇") {
       replier.reply("!메뉴");
+  
       return 0;
     }
     rnd = Math.floor(Math.random() * menu.length);
@@ -1155,6 +1184,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
     rnd = Math.floor(Math.random() * music.length);
     result = sender + " 님의 추천 음악은\n\n" + music[rnd];
     replier.reply(result);
+
     return 0;
   }
 
@@ -1179,6 +1209,8 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
 
     /*result = "《" + sender + "님의 추천 채널》\n" + chname + " " + rnd2 + "채널";
     replier.reply(result);*/
+
+    return 0;
   }
 
   if (msg.indexOf("!중복픽 ") == 0) {
@@ -1190,6 +1222,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
     var epicper = have / 196 * 100;
     result = "《중복 에픽 확률 계산기》\n" + sender + " 님의 중복 에픽이 뜰 확률은\n\n" + epicper.toFixed(2) + "% 입니다";
     replier.reply(result);
+    
     return 0;
   }
 
@@ -1205,6 +1238,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
       result += "\n" + city + "　" + degree + "　" + weather;
     }
     replier.reply(result);
+
     return 0;
   }
 
@@ -1222,9 +1256,11 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
       result = "기온 :" + drgree + "\n" + text + "\n체감온도 : " + feel + "\n습도 : " + wet + "\n" + windPosition + " " + windSpeed;
 
       replier.reply("《현재 " + place + " 날씨》\n\n" + result);
+
       return 0;
     } catch (error) {
       replier.reply("지원하지 않는 지역입니다.");
+
       return 0;
     }
   }
@@ -1568,19 +1604,23 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
       result = result + ultra1[i] + temp3 + ultra2[i] + temp1 + ultra3[i] + temp2 + ultra4[i];
     }
     replier.reply(result);
-  }
 
-  if (msg == "!조합기") {
-    result = "《100제 장비 조합기》\n\n자동 조합 계산기 : https://drive.google.com/file/d/1p8ZdzW_NzGKHHOtfPTuZSr1YgSEVtYCj/view" + "\n\n\n제작자 : 던파조선 - Dawnclass\nhttp://df.gamechosun.co.kr/board/list.php?bid=tip&col=nickname&kw=Dawnclass";
-    replier.reply(result);
     return 0;
   }
 
-  if (msg == "!계산기") {
-    result = "《크리에이터 전용 계산기》\n\n https://drive.google.com/file/d/1_ZFpOF9i46C5Aizd-x2JnobHftYwFRur/view?usp=sharing" + "\n\n\n제작자 : 공홈 - NeoCreator\nhttp://df.nexon.com/df/community/dnfboard?mode=list&search_type=charac_name&keyword=NeoCreator&job=10&grow_type=0";
-    replier.reply(result);
-    return 0;
-  }
+  // if (msg == "!조합기") {
+  //   result = "《100제 장비 조합기》\n\n자동 조합 계산기 : https://drive.google.com/file/d/1p8ZdzW_NzGKHHOtfPTuZSr1YgSEVtYCj/view" + "\n\n\n제작자 : 던파조선 - Dawnclass\nhttp://df.gamechosun.co.kr/board/list.php?bid=tip&col=nickname&kw=Dawnclass";
+  //   replier.reply(result);
+
+  //   return 0;
+  // }
+
+  // if (msg == "!계산기") {
+  //   result = "《크리에이터 전용 계산기》\n\n https://drive.google.com/file/d/1_ZFpOF9i46C5Aizd-x2JnobHftYwFRur/view?usp=sharing" + "\n\n\n제작자 : 공홈 - NeoCreator\nhttp://df.nexon.com/df/community/dnfboard?mode=list&search_type=charac_name&keyword=NeoCreator&job=10&grow_type=0";
+  //   replier.reply(result);
+
+  //   return 0;
+  // }
 
   var sw;
   var chat = msg.split(" ");
@@ -3787,6 +3827,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
       result = "《니코봇 후원하기》\n방장 - 단진 에게 문의  또는\nhttps://twip.kr/gocaps";
     }*/
     replier.reply(result);
+
     return 0;
   }
 
@@ -3845,6 +3886,8 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
 
     var result = "《" + sender + "님의 " + voss + " 딜량》\n총 딜 : " + AddComma(total) + "\n딜 비율 : " + boss;
     replier.reply(result);
+
+    return 0;
   }
 
 
@@ -3900,6 +3943,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
 
     /*var result = "《" + battletag + " 님의 전적》\n\n계정 레벨 : " + aclevel + "\nKDR : " + kdr + "\nKDA : " + kda + "\n승리 : " + onlywin + "\n패배 : " + onlylose + "\n승률 : " + winrate + "\n\n∇▼역할군 별 승률▼∇" + "​".repeat(495) + "\n투사 : " + bruiser + "\n지원가 : " + support + "\n원거리 암살자 : " + ranass + "\n근접 암살자 : " + melass + "\n치유사 : " + healer + "\n전사 : " + tank + "\n\n전체 영웅별 보기\n" + link;
     replier.reply(result);*/
+
     return 0;
   }
 
@@ -3923,12 +3967,14 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
 
     /*result = sender + " 님의 추천 영웅은\n\n" + hero[rnd];
     replier.reply(result);*/
+
     return 0;
   }
 
   if (msg == "!업로드") {
     result = "《히오스 리플레이 업로드》\n https://api.heroesprofile.com/upload";
     replier.reply(result);
+
     return 0;
   }
 
@@ -3936,6 +3982,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
     var info = Utils.getWebText("https://time.is/ko/UTC").split("<time id=\"clock\">")[1].split("</time>")[0];
     result = "《UTC 협정 세계 시각》\n" + info;
     replier.reply(result);
+
     return 0;
   }
 
@@ -4099,6 +4146,8 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
       default:
         break;
     }
+
+    return 0;
   }
 
   if (msg.indexOf("!장비 ") == 0) {
@@ -4220,6 +4269,8 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
       default:
         break;
     }
+
+    return 0;
   }
   
   if (msg.indexOf("!수집 ") == 0) {
@@ -4355,6 +4406,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
     result = result + lv + " " + cls + " @" + serv + "\n원정대 레벨 : " + exp + "\n장착 아이템 레벨 : " + temlev1 + "\n달성 아이템 레벨 : " + temlev2 + "\n\n각인 효과\n" + eng;
 
     replier.reply(result);
+
     return 0;
   }
 
@@ -4409,6 +4461,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
         "img": img
       }
     }, "custom");
+
     return 0;
   }*/
 
@@ -4423,6 +4476,8 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
     }
 
     replier.reply(result);
+
+    return 0;
   }
 
   if (msg.indexOf("!시세 ") == 0) {
@@ -4494,6 +4549,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
         "img": itemImg
       }
     }, "custom");
+    
     return 0;
   }
 
@@ -4527,6 +4583,8 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
         "title": "실제 시세와 차이가 있을 수 있습니다"
       }
     }, "custom");
+
+    return 0;
   }
 
   if (msg == "!모험섬") {
@@ -4582,6 +4640,21 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
         "img2" : resultTypeImg[2],
       }
     }, "custom");
+
+    return 0;
+  }
+
+  if (msg.indexOf("피로도") != -1 && sender == "방장봇") {
+    Kakao.send(room, {
+      "link_ver": "4.0",
+      "template_id": 32925 ,
+      "template_args": {
+        "title": "던파 하러가자!",
+        "img": "https://cdn.discordapp.com/attachments/778559127273734165/982392184189878332/unknown.png"
+      }
+    }, "custom");
+
+    return 0;
   }
 
 }
