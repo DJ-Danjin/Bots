@@ -199,18 +199,25 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
                   "[놀자에몽]",
                   "[머쓱환에요]",
                   "[정말이요]",
-                  "[웃기구요]",
-                  "[웃기네요]",
+                  "[웃기구요]||[웃기네요]",
                   "[엄지척]||[엄지로아콘]",
                   "[모야호]||[야호로아콘]",
-                  "[크크크]",
-                  "[방긋방긋]",
+                  "[크크크]||[크크로아콘]",
+                  "[방긋방긋]||[방긋로아콘]",
                   "[이거줘]",
-                  "[응안줘]",
-                  "[빠직]",
-                  "[슬퍼]",
+                  "[응안줘]||[안줘로아콘]",
+                  "[빠직]||[빠직로아콘]",
+                  "[슬퍼]||[슬퍼로아콘]",
                   "[기분좋은향기]||[향기로아콘]",
-                  "[털썩]"
+                  "[털썩]||[털썩로아콘]",
+                  "[호에엥]||[호에엥로아콘]",
+                  "[좋아요]||[좋아]||[조아요]||[조아]||[좋아요로아콘]",
+                  "[이이잉]||[이잉]||[이이잉로아콘]||[이잉로아콘]",
+                  "[두렵다]||[두렵다로아콘]",
+                  "[핥짝]||[할짝]||[핥짝로아콘]||[할짝로아콘]",
+                  "[이건못참지]||[못참지]||[못참지로아콘]",
+                  "[뀨]||[뀨잉]||[뀨로아콘]||[뀨잉로아콘]",
+                  "[영차]||[영차로아콘]"
                 ];
   var emoWid = [
                   /*[놀자에요]*/283,
@@ -222,7 +229,6 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
                   /*[머쓱환에요]*/340,
                   /*[정말이요]*/283,
                   /*[웃기구요]*/255,
-                  /*[웃기네요]*/255,
                   /*[엄지척]*/360,
                   /*[모야호]*/360,
                   /*[크크크]*/360,
@@ -232,7 +238,15 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
                   /*[빠직]*/360,
                   /*[슬퍼]*/360,
                   /*[기분좋은향기]*/360,
-                  /*[털썩]*/360
+                  /*[털썩]*/360,
+                  /*[호에엥]*/360,
+                  /*[좋아요]*/360,
+                  /*[이이잉]*/360,
+                  /*[두렵다]*/360,
+                  /*[핥짝]*/360,
+                  /*[이건못참지]*/360,
+                  /*[뀨]*/360,
+                  /*[영차]*/360
                 ];
   var emoHei = [
                   /*[놀자에요]*/283,
@@ -244,7 +258,6 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
                   /*[머쓱환에요]*/255,
                   /*[정말이요]*/283,
                   /*[웃기구요]*/255,
-                  /*[웃기네요]*/255,
                   /*[엄지척]*/360,
                   /*[모야호]*/360,
                   /*[크크크]*/360,
@@ -254,7 +267,15 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
                   /*[빠직]*/360,
                   /*[슬퍼]*/360,
                   /*[기분좋은향기]*/360,
-                  /*[털썩]*/360
+                  /*[털썩]*/360,
+                  /*[호에엥]*/360,
+                  /*[좋아요]*/360,
+                  /*[이이잉]*/360,
+                  /*[두렵다]*/360,
+                  /*[핥짝]*/360,
+                  /*[이건못참지]*/360,
+                  /*[뀨]*/360,
+                  /*[영차]*/360
                 ];
   var emoImg = [
     /*[놀자에요]*/"https://cdn.discordapp.com/attachments/778559127273734165/906563617170812949/i14275538961.png",
@@ -266,7 +287,6 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
     /*[머쓱환에요]*/"https://cdn.discordapp.com/attachments/778559127273734165/906563876773052426/i15916633816.png",
     /*[정말이요]*/"https://cdn.discordapp.com/attachments/778559127273734165/906563912936325180/i15436393927.png",
     /*[웃기구요]*/"https://cdn.discordapp.com/attachments/778559127273734165/906563938580324372/i14535754235.png",
-    /*[웃기네요]*/"https://cdn.discordapp.com/attachments/778559127273734165/906563938580324372/i14535754235.png",
     /*[엄지척]*/"https://cdn.discordapp.com/attachments/778559127273734165/923749325719355452/01_1_01_.png",
     /*[모야호]*/"https://cdn.discordapp.com/attachments/778559127273734165/923749326210072596/01_1_03_.png",
     /*[크크크]*/"https://cdn.discordapp.com/attachments/778559127273734165/923749326650482758/01_1_06_.png",
@@ -276,7 +296,15 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
     /*[빠직]*/"https://cdn.discordapp.com/attachments/778559127273734165/923749327598387210/01_1_17_.png",
     /*[슬퍼]*/"https://cdn.discordapp.com/attachments/778559127273734165/923749327904595988/01_1_18_.png",
     /*[기분좋은향기]*/"https://cdn.discordapp.com/attachments/778559127273734165/923749328277864468/01_1_23_.png",
-    /*[털썩]*/"https://cdn.discordapp.com/attachments/778559127273734165/923749328554696785/01_1_24_.png"
+    /*[털썩]*/"https://cdn.discordapp.com/attachments/778559127273734165/923749328554696785/01_1_24_.png",
+    /*[호에엥]*/"https://cdn.discordapp.com/attachments/778559127273734165/985853086784430110/02_2_02_.png",
+    /*[좋아요]*/"https://cdn.discordapp.com/attachments/778559127273734165/985853087057076264/02_2_03_.png",
+    /*[이이잉]*/"https://cdn.discordapp.com/attachments/778559127273734165/985853087317118996/02_2_08_.png",
+    /*[두렵다]*/"https://cdn.discordapp.com/attachments/778559127273734165/985853088088883250/02_2_12_.png",
+    /*[핥짝]*/"https://cdn.discordapp.com/attachments/778559127273734165/985853088311177236/02_2_18_.png",
+    /*[이건못참지]*/"https://cdn.discordapp.com/attachments/778559127273734165/985853088533446676/02_2_19_.png",
+    /*[뀨]*/"https://cdn.discordapp.com/attachments/778559127273734165/985853088743174204/02_2_24_.png",
+    /*[영차]*/"https://cdn.discordapp.com/attachments/778559127273734165/985853088986447873/02_2_30_.png"
   ];
 
   var menu = ["밥", "국", "분식", "면", "일식", "중식", "야식"];
